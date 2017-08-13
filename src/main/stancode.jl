@@ -227,7 +227,8 @@ function stan_summary(file::String; CmdStanDir=CMDSTAN_HOME)
   try
     pstring = Pkg.dir("$(CmdStanDir)", "bin", "stansummary")
     cmd = `$(pstring) $(file)`
-    print(open(readstring, cmd, "r"))
+    res = String(read(open(cmd)))
+    print("$res")
   catch e
     println(e)
   end
@@ -265,10 +266,13 @@ function stan_summary(filecmd::Cmd; CmdStanDir=CMDSTAN_HOME)
   try
     pstring = Pkg.dir("$(CmdStanDir)", "bin", "stansummary")
     cmd = `$(pstring) $(filecmd)`
+    #println(cmd)
     println()
     println("Calling $(pstring) to infer across chains.")
     println()
-    print(open(readstring, cmd, "r"))
+    #res = open(readstring, cmd, "r")
+    res = String(read(open(cmd)))
+    print("$res")
   catch e
     println()
     println("Stan.jl caught above exception in Stan's 'stansummary' program.")

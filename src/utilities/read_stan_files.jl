@@ -46,7 +46,7 @@ function read_stanfit(model::Stanmodel)
         instream = open("$(model.name)_$(res_type)_$(i).csv")
         if res_type == "diagnose"
           tdict = Dict()
-          str = readstring(instream)
+          str = read(instream, String)
           sstr = split(str)
           tdict = merge(tdict, Dict(:stan_major_version => [parse(Int, sstr[4])]))
           tdict = merge(tdict, Dict(:stan_minor_version => [parse(Int, sstr[8])]))
