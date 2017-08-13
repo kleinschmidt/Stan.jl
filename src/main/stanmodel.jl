@@ -232,7 +232,7 @@ update_model_file(
 ?Stan.Stanmodel                 : Create a StanModel
 ```
 """
-function update_model_file(file::String, str::SubString{String})
+function update_model_file(file::String, str::AbstractString)
   str2 = ""
   if isfile(file)
     str2 = read(file, String)

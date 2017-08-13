@@ -18,7 +18,7 @@ This version of the package has primarily been tested on Mac OSX 10.12 & 10.13, 
 
 A limited amount of testing has taken place on other platforms by other users of the package.
 
-## Version 2.1.0 (not yet on METADATA, in master)
+## Version 2.1.0 (not yet on METADATA, in branch Stan.jl-2.1.0)
 
 1. Mainly package updates
 1. Only on Julia 0.7-
