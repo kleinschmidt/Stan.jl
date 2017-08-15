@@ -20,8 +20,9 @@ A limited amount of testing has taken place on other platforms by other users of
 
 ## Version 2.1.0 (not yet on METADATA, in branch Stan.jl-2.1.0)
 
-1. Mainly package updates
 1. Only on Julia 0.7-
+1. Ability to store stansummary report (WIP)
+1. Updated REQUIRE for Mamba and Gadfly
 
 ## Version 2.0.0
 
