@@ -2,8 +2,6 @@ using Stan, Mamba
 using OrdinaryDiffEq, ParameterizedFunctions, RecursiveArrayTools, DiffEqBayes
 using Base.Test
 
-<<<<<<< HEAD
-=======
 #=
 Experimental link to DiffEqBayes examples
 
@@ -51,4 +49,3 @@ cd(ProjDir) #do
   @test mean(theta1.value[:,:,1]) ≈ 2.6666 atol=1e-1
 
 #end
->>>>>>> master
