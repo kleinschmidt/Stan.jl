@@ -51,8 +51,4 @@ cd(ProjDir) do
   
   @test mean(theta1.value[:,:,1]) ≈ 2.6666 atol=1e-1
 
-<<<<<<< HEAD
-#end
-=======
 end
->>>>>>> master
