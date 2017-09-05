@@ -1,14 +1,19 @@
+using OrdinaryDiffEq, ParameterizedFunctions, RecursiveArrayTools
+#using DiffEqBayes
 using Stan, Mamba
-using OrdinaryDiffEq, ParameterizedFunctions, RecursiveArrayTools, DiffEqBayes
 using Base.Test
+
+include(joinpath(Pkg.dir("Stan"), "Examples", "OtherExamples", "DiffEqBayes",
+  "bayesian_inference.jl"))
 
 #=
 Experimental link to DiffEqBayes examples
 
-Issues:
+Possible issues to investigate:
 
-1. Sampling results vary too much
+1. Sampling results vary too much. chains often get stuck
 2. @ode_def_nohes needs to be kept outside local scope block
+3. Minimize string replacements in Stan language model to prevent recompilations
 
 =#
 
@@ -42,7 +47,7 @@ cd(ProjDir) do
     ["sigma.1", "sigma.2", "theta.1"], :]
   ## Plotting
   p = plot(sim1, [:trace, :mean, :density, :autocor], legend=true);
-  draw(p, ncol=4, filename="LotkaVolterraTest1-summaryplot", fmt=:pdf)
+  draw(p, ncol=4, filename="LotkaVolterra-summaryplot", fmt=:pdf)
 
   @test mean(theta1.value[:,:,1]) ≈ 1.5 atol=1e-1
 end
